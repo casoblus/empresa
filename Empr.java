@@ -6,7 +6,7 @@ public class Empr
 	String nome;
 	int idade,
 	    salario,
-	    n_emp;
+	    Numde;
 
 	public void ALTA_E()
 	{
@@ -15,14 +15,34 @@ public class Empr
 		System.out.println();
 		System.out.println( "Novo Empregado" );
 		System.out.println( "--------------" );
+		
 		System.out.println( "Nome: " );
-			nome = sc.nextLine(); 
+		nome = sc.nextLine(); 
+		
 		System.out.println( "Idade: " );
-			idade = sc.nextInt(); 
+		idade = sc.nextInt(); 
+		
 		System.out.println( "Salario: " );
-			salario = sc.nextInt(); 
-		System.out.println( "Numero de empleado: " );
-			n_emp = sc.nextInt(); 
+		salario = sc.nextInt(); 
+		
+		System.out.println( "Numero de departamento: " );
+		Numde = sc.nextInt(); 
+		
+		System.out.println();
+	}
+
+	public void VER_E()
+	{
+		System.out.println();
+		
+		System.out.print( "Nome: " + nome );
+		
+		System.out.print( "Idade: " + idade );
+		
+		System.out.print( "Salario: " + salario );
+		
+		System.out.print( "Numero de departamento: " + Numde );
+		
 		System.out.println();
 	}
 }
