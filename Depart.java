@@ -24,4 +24,15 @@ class Depart {
 			Num_emp = sc.nextInt(); 
 		System.out.println();
 	}
+
+	public void VER_D()
+	{
+		System.out.println();
+		System.out.println( nome );
+		System.out.println( Presu );
+		System.out.println( N_emp );
+		System.out.println( Numde );
+		System.out.println();
+	}
+
 }
