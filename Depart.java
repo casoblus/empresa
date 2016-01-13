@@ -21,7 +21,7 @@ class Depart {
 		System.out.println( "Presuposto: " );
 			Presu = sc.nextInt(); 
 		System.out.println( "Numero de empregados: " );
-			Num_emp = sc.nextInt(); 
+			N_emp = sc.nextInt(); 
 		System.out.println();
 	}
 
@@ -35,4 +35,11 @@ class Depart {
 		System.out.println();
 	}
 
+	public void MODIF_NEMP()
+	{
+		Scanner sc = new Scanner( System.in );
+
+		System.out.println();
+		N_emp = sc.nextInt();
+	}
 }
