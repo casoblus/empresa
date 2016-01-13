@@ -45,4 +45,9 @@ public class Empr
 		
 		System.out.println();
 	}
+
+	public void SET_DEP( int depart )
+	{
+		Numde = depart;
+	}
 }
