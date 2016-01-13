@@ -1,0 +1,7 @@
+Modificar la aplicación para poder usar un array de 10 empleados y 10 departamentos donde añadiremos un atributo static llamado seg_emp y static seg_dep así como los métodos siguientes:
+-ALTA_E Le pasamos el array de empleados y dentro le pedimos los datos igual.
+-VER_E Le pasamos un objeto empleado y visualizamos todos los datos.
+-VER_E Método sobrecargado... No se hace de momento.
+-VER_TODOS Visualiza los datos de todos los empleados-
+-BUSCA_EMP  Le pasamos un array y un nombre y devuelve un objeto empleado y null si no lo encuentra.
+-SET_DEP Le pasamos el objeto empleado y el departamento a asignarle. Compbribamos que exista.
