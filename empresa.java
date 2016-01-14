@@ -77,8 +77,10 @@ class Empresa
 					}
 					break;
 				case 3:
+					System.out.println( "No implementado" );
 					break;
 				case 4:
+					Empr.VER_TODOS( empregado );
 					break;
 				case 5:
 					break;
