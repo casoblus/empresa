@@ -49,6 +49,25 @@ public class Empr
 		System.out.println();
 	}
 
+	/**
+	 * Visualiza los datos de todos los empleados
+	 **/
+	public static void VER_TODOS( Empr[] empreg ) 
+	{
+		for( int i = 0; i < empreg.length; i++ )
+		{
+			System.out.println();
+			
+			System.out.println( "empreg"+i );
+			System.out.println( empreg[i].nome );
+			System.out.println( empreg[i].idade );
+			System.out.println( empreg[i].salario );
+			System.out.println( empreg[i].Numde );
+		
+			System.out.println();
+		}
+	}
+
 	public void SET_DEP( int depart )
 	{
 		Numde = depart;
