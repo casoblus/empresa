@@ -3,23 +3,6 @@ class Empresa
 {
 	public static void main( String[] args )
 	{
-		/*
-		// Crea objeto de clase Departegado
-		Empr empregado = new Empr();
-		// Crea objeto de clase Departamento
-		Depart departamento = new Depart();
-
-
-		// ALTAS
-		empregado.ALTA_E();
-		departamento.ALTA_D();
-
-		
-		// MOSTRAR DATOS
-		empregado.VER_E();
-		departamento.VER_D();
-		//*/
-		
 
 		/**
 		 * Crea arrays
@@ -29,7 +12,8 @@ class Empresa
 		Depart[] departamento = new Depart[10];
 		Scanner sc = new Scanner( System.in );
 		int option, n;
-
+		String nom;
+	
 		/**
 		 * menu
 		 **/
@@ -41,6 +25,7 @@ class Empresa
 			System.out.println( "[4]. Ver todos." );
 			System.out.println( "[5]. Buscar empleado por nombre." );
 			System.out.println( "[6]. Establecer departamento" );
+			System.out.println( "[7]. Alta departamento." );
 			System.out.println( "[0]. Salir!" );
 			System.out.println( "" );
 			System.out.println( "" );
@@ -60,12 +45,11 @@ class Empresa
 					
 					System.out.println("Numero del empleado?");
 					n = sc.nextInt();
-					
+					nom = sc.nextLine();
 					// Hay que comprobar que exista empregado[n]
-					// Pero, no se :) Aun asi, compruebo que 
-					// al menos n este en el rango del array
-					
-					if( n >= 0 && n < empregado.legnth )
+					// Empleo el contador emp_seg que hay en Empr.java
+					// Como es private, he creado un método para conseguiro GET_SEG()
+					if( n >= 0 && n < Empr.GET_SEG() )
 					{
 					
 							  Empr.VER_E( empregado[n] );
@@ -77,14 +61,52 @@ class Empresa
 					}
 					break;
 				case 3:
-					System.out.println( "No implementado" );
+					// Pido los datos de la consulta:
+					System.out.print( "Posicion del empleado en el array: " );
+					n = sc.nextInt();
+
+					// Compruebo que n exista en el rango del array de empleados
+					if( n >= 0 && n <= Empr.GET_SEG() )
+					{
+						Empr.VER_E( empregado[n], departamento );
+					} else {
+						System.out.println( "Fuera de rango." );
+					}
 					break;
 				case 4:
 					Empr.VER_TODOS( empregado );
 					break;
 				case 5:
+					//Buscar empleado por nombre
+					System.out.println( "Nombre del empleado:" );
+					nom = sc.nextLine(); // Recoge el salto de linea que hay en el buffer
+					nom = sc.nextLine();
+					Empr e;
+					e = Empr.BUSCA_EMP( empregado, nom );
+					Empr.VER_E( e );
 					break;
 				case 6:
+					// Set departamento. 
+					// Le pasamos el objeto empleado y el departamento
+					System.out.println();
+					System.out.println( "Empleado?" );
+					nom = sc.nextLine();
+					nom = sc.nextLine();
+					Empr e = Empr.BUSCA_EMP( empregado, nom );
+					if( e != null ) // e != null
+					{
+						System.out.println( "Departamento?" );
+						Depart d = sc.nextLine();
+						if( d != null ) // d != null 
+						{
+							Empr.SET_DEP( e, d );
+						}
+					}
+					System.out.println();
+					break;
+				case 7:
+					// ALTA DEPARTAMENTO
+					Depart.ALTA_D( departamento );
 					break;
 				default:
 					System.out.println( "Opcion incorrecta." );

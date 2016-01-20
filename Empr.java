@@ -10,7 +10,7 @@ public class Empr
 	    
 	static int emp_seg = 0;
 
-	public void ALTA_E( Empr[] empreg ) // recibe un array vacío
+	public static void ALTA_E( Empr[] empreg ) // recibe un array vacío
 	{
 		Scanner sc = new Scanner( System.in );
 		empreg[emp_seg] = new Empr();
@@ -35,19 +35,41 @@ public class Empr
 		emp_seg++;
 	}
 
-	public void VER_E( Empr empreg ) // recibe un objeto
+	public static void VER_E( Empr empreg ) // recibe un objeto
 	{
 		System.out.println();
-		
-		System.out.print( "Nome: " + nome );
-		
-		System.out.print( "Idade: " + idade );
-		
-		System.out.print( "Salario: " + salario );
-		
-		System.out.print( "Numero de departamento: " + Numde );
-		
+		System.out.print( "Nome: " + empreg.nome );
+		System.out.print( "Idade: " + empreg.idade );
+		System.out.print( "Salario: " + empreg.salario );
+		System.out.print( "Numero de departamento: " + empreg.Numde );
 		System.out.println();
+	}
+/**
+ * Si le pasamos un empleado junto con el array de departamentos
+ * muestra los datos del empleado junto con los de su departamento
+**/
+	public static boolean VER_E( Empr empreg, Depart[] depart) // recibe un objeto
+	{
+		/*
+		 * Busca el departamento
+		 */
+		for( int i = 0; i < Depart.seg_dep; i++ )
+		{
+			if( depart[i].Numde == empreg.Numde )
+			{
+				System.out.println();
+				System.out.print( "Nome: " + empreg.nome );
+				System.out.print( "Idade: " + empreg.idade );
+				System.out.print( "Salario: " + empreg.salario );
+				System.out.print( "Numero de departamento: " + empreg.Numde );
+				System.out.print( "Nome do departamnento: " + depart[i].nome );
+				System.out.print( "Presuposto do departamnento: " + depart[i].Presu );
+				System.out.print( "Empregados no departamnento: " + depart[i].N_emp );
+				System.out.println();
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -86,8 +108,15 @@ public class Empr
 		}
 		return null;
 	}
-	public void SET_DEP( int depart )
+	/**
+	 * Devuelve el numero de empleados dados de alta
+	 **/
+	public static int GET_SEG()
 	{
-		Numde = depart;
+		return emp_seg;
+	}
+	public void SET_DEP( Empr empreg, int depar )
+	{
+		empreg.Numde = depar;
 	}
 }
