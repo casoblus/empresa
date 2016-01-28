@@ -39,14 +39,26 @@ public class Empr
 		//emp_seg++;
 	}
 
-	public static void VER_E( Empr empreg ) // recibe un objeto
-	{
+	public static void VER_E( ArrayList<Empr> empreg, int n ) // Recibe un ArrayList y la posición del objeto
+	{	
+		// Aquí cambian muchas cosas...
+		// El array del ArrayList se encuentra dentro de un objeto de clase Arraylist
+		// Por ello no se puede acceder a su contenido directamente
+		// Como el array es de objetos, le pedimos a Arraylist que nos devuelva uno concreto, n.
+		 	Empr empregado = empreg.get(n);
+		// El ArrayList nos devuelve el objeto y lo guardamos en una variable
+		// Ahora podemos acceder a las propiedades y métodos del objeto.
+		// Un ArrayList es un almacen de cosas.
+		
 		System.out.println();
-		System.out.print( "Nome: " + empreg.nome );
-		System.out.print( "Idade: " + empreg.idade );
-		System.out.print( "Salario: " + empreg.salario );
-		System.out.print( "Numero de departamento: " + empreg.Numde );
+		System.out.println( "Nome: " + empregado.nome );
+		System.out.println( "Idade: " + empregado.idade );
+		System.out.println( "Salario: " + empregado.salario );
+		System.out.println( "Numero de departamento: " + empregado.Numde );
 		System.out.println();
+
+		// Como vemos no hemos actuado sobre una posición del array sino directamente sobre el objeto que
+		// nos ha devuelto el método .get() de ArrayList.
 	}
 	/**
 	 * Si le pasamos un empleado junto con el array de departamentos

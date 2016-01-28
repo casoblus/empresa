@@ -10,8 +10,8 @@ class Empresa
 		 * Crea arrays 
 		 **/
 
-		ArrayList<Empr> empregado;
-		ArrayList<Depart> departamento;
+		ArrayList<Empr> empregado = new ArrayList<Empr>();
+		ArrayList<Depart> departamento = new ArrayList<Depart>();
 		Scanner sc = new Scanner( System.in );
 		int option, n;
 		String nom;
@@ -48,17 +48,16 @@ class Empresa
 					System.out.println("Numero del empleado?");
 					n = sc.nextInt();
 					nom = sc.nextLine();
-					// Hay que comprobar que exista empregado[n]
-					// Empleo el contador emp_seg que hay en Empr.java
-					// Como es private, he creado un método para conseguiro GET_SEG()
-					if( n >= 0 && n < Empr.GET_SEG() )
+
+					// Se comprueba que el ArrayList NO está vacío
+					if( !empregado.isEmpty() )
 					{
 					
-							  Empr.VER_E( empregado[n] );
+							  Empr.VER_E( empregado, n );
 
 					} else {
 
-						System.out.print("Fuera de rango");
+						System.out.print("No existen elementos.");
 					
 					}
 					break;
