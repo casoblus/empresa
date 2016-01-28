@@ -1,15 +1,17 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+
 class Empresa
 {
 	public static void main( String[] args )
 	{
 
 		/**
-		 * Crea arrays
+		 * Crea arrays 
 		 **/
 
-		Empr[] empregado = new Empr[10];
-		Depart[] departamento = new Depart[10];
+		ArrayList<Empr> empregado;
+		ArrayList<Depart> departamento;
 		Scanner sc = new Scanner( System.in );
 		int option, n;
 		String nom;
@@ -37,7 +39,7 @@ class Empresa
 				case 0:
 					break;
 				case 1:
-					Empr.ALTA_E( empregado );
+					Empr.ALTA_E( empregado ) ;
 					break;
 				case 2:
 					//hay que pasarle el objeto del que queremos ver los datos
@@ -60,7 +62,7 @@ class Empresa
 					
 					}
 					break;
-				case 3:
+/*				case 3:
 					// Pido los datos de la consulta:
 					System.out.print( "Posicion del empleado en el array: " );
 					n = sc.nextInt();
@@ -108,6 +110,7 @@ class Empresa
 					// ALTA DEPARTAMENTO
 					Depart.ALTA_D( departamento );
 					break;
+					*/
 				default:
 					System.out.println( "Opcion incorrecta." );
 					break;

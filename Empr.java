@@ -1,5 +1,6 @@
 // importo tecladito
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Empr
 {
@@ -10,29 +11,32 @@ public class Empr
 	    
 	static int emp_seg = 0;
 
-	public static void ALTA_E( Empr[] empreg ) // recibe un array vacío
+	public static void ALTA_E( ArrayList<Empr> empreg ) // recibe un array vacío
 	{
 		Scanner sc = new Scanner( System.in );
-		empreg[emp_seg] = new Empr();
+		Empr pepis = new Empr();
+		
 		
 		System.out.println();
 		System.out.println( "Novo Empregado" );
 		System.out.println( "--------------" );
 		
 		System.out.println( "Nome: " );
-		empreg[emp_seg].nome = sc.nextLine();
+		pepis.nome = sc.nextLine();
 		
 		System.out.println( "Idade: " );
-		empreg[emp_seg].idade = sc.nextInt(); 
+		pepis.idade = sc.nextInt(); 
 		  
 		System.out.println( "Salario: " );
-		empreg[emp_seg].salario = sc.nextInt(); 
+		pepis.salario = sc.nextInt(); 
 		  
 		System.out.println( "Numero de departamento: " );
-		empreg[emp_seg].Numde = sc.nextInt(); 
+		pepis.Numde = sc.nextInt(); 
 		  
 		System.out.println();
-		emp_seg++;
+		empreg.add( pepis );
+	
+		//emp_seg++;
 	}
 
 	public static void VER_E( Empr empreg ) // recibe un objeto
@@ -44,10 +48,10 @@ public class Empr
 		System.out.print( "Numero de departamento: " + empreg.Numde );
 		System.out.println();
 	}
-/**
- * Si le pasamos un empleado junto con el array de departamentos
- * muestra los datos del empleado junto con los de su departamento
-**/
+	/**
+	 * Si le pasamos un empleado junto con el array de departamentos
+	 * muestra los datos del empleado junto con los de su departamento
+	 **/
 	public static boolean VER_E( Empr empreg, Depart[] depart) // recibe un objeto
 	{
 		/*

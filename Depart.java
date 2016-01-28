@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class Depart {
 	String nome;
@@ -48,8 +49,9 @@ class Depart {
 		N_emp = sc.nextInt();
 	}
 
-	public static int GET_SEG()
+/*	public static int GET_SEG()
 	{
 		return dep_seg;
 	}
+	*/
 }
