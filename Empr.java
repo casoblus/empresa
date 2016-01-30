@@ -39,69 +39,79 @@ public class Empr
 		//emp_seg++;
 	}
 
-	public static void VER_E( ArrayList<Empr> empreg, int n ) // Recibe un ArrayList y la posición del objeto
+
+
+	public static void VER_E( Empr empregado ) // Recibe un Objeto Empr
 	{	
-		// Aquí cambian muchas cosas...
-		// El array del ArrayList se encuentra dentro de un objeto de clase Arraylist
-		// Por ello no se puede acceder a su contenido directamente
-		// Como el array es de objetos, le pedimos a Arraylist que nos devuelva uno concreto, n.
-		 	Empr empregado = empreg.get(n);
-		// El ArrayList nos devuelve el objeto y lo guardamos en una variable
-		// Ahora podemos acceder a las propiedades y métodos del objeto.
-		// Un ArrayList es un almacen de cosas.
-		
 		System.out.println();
 		System.out.println( "Nome: " + empregado.nome );
 		System.out.println( "Idade: " + empregado.idade );
 		System.out.println( "Salario: " + empregado.salario );
 		System.out.println( "Numero de departamento: " + empregado.Numde );
 		System.out.println();
-
-		// Como vemos no hemos actuado sobre una posición del array sino directamente sobre el objeto que
-		// nos ha devuelto el método .get() de ArrayList.
 	}
+
+
+
+
 	/**
 	 * Si le pasamos un empleado junto con el array de departamentos
 	 * muestra los datos del empleado junto con los de su departamento
 	 **/
-	public static boolean VER_E( Empr empreg, Depart[] depart) // recibe un objeto
+	public static boolean VER_E( ArrayList<Empr> empreg, int n,  ArrayList<Depart> depart ) // recibe un objeto
 	{
+		// Extrae el objeto n del ArrayList
+		
+		Depart departamento;
+		Empr empregado = empreg.get(n);
+
 		/*
 		 * Busca el departamento
 		 */
-		for( int i = 0; i < Depart.seg_dep; i++ )
+
+		for( int i = 0; i < depart.size() ; i++ )
 		{
-			if( depart[i].Numde == empreg.Numde )
+			// Comprobar cada elemento del Arraylist de departamentos
+			
+			departamento = depart.get(i);
+
+			if( departamento.Numde == empregado.Numde )
 			{
 				System.out.println();
-				System.out.print( "Nome: " + empreg.nome );
-				System.out.print( "Idade: " + empreg.idade );
-				System.out.print( "Salario: " + empreg.salario );
-				System.out.print( "Numero de departamento: " + empreg.Numde );
-				System.out.print( "Nome do departamnento: " + depart[i].nome );
-				System.out.print( "Presuposto do departamnento: " + depart[i].Presu );
-				System.out.print( "Empregados no departamnento: " + depart[i].N_emp );
+				System.out.print( "Nome: " + empregado.nome );
+				System.out.print( "Idade: " + empregado.idade );
+				System.out.print( "Salario: " + empregado.salario );
+				System.out.print( "Numero de departamento: " + empregado.Numde );
+				System.out.print( "Nome do departamnento: " + departamento.nome );
+				System.out.print( "Presuposto do departamnento: " + departamento.Presu );
+				System.out.print( "Empregados no departamnento: " + departamento.N_emp );
 				System.out.println();
-				return true;
+				return true; // Esto puede valer para gestionar alguna cosa en el main en caso de que encuentre o no...
 			}
 		}
 		return false;
 	}
 
+
+
+
 	/**
 	 * Visualiza los datos de todos los empleados
 	 **/
-	public static void VER_TODOS( Empr[] empreg ) 
+	public static void VER_TODOS( ArrayList<Empr> empregado ) 
 	{
-		for( int i = 0; i < emp_seg; i++ )
+		int size = empregado.size();
+		Empr emp;
+		for( int i = 0; i < size; i++ )
 		{
+			emp = empregado.get(i);
 			System.out.println();
 			
-			System.out.println( "empreg"+i );
-			System.out.println( empreg[i].nome );
-			System.out.println( empreg[i].idade );
-			System.out.println( empreg[i].salario );
-			System.out.println( empreg[i].Numde );
+			System.out.println( "empregado: "+i );
+			System.out.println( emp.nome );
+			System.out.println( emp.idade );
+			System.out.println( emp.salario );
+			System.out.println( emp.Numde );
 		
 			System.out.println();
 		}
@@ -113,24 +123,36 @@ public class Empr
 	 * si no, devuelve null.
 	 **/
 
-	public static Empr BUSCA_EMP( Empr[] empreg, String _nome )
+	public static Empr BUSCA_EMP( ArrayList<Empr> empreg, String _nome )
 	{
-		for( int i = 0; i < emp_seg; i++ )
+		int size = empreg.size();
+		Empr empregado;
+
+		for( int i = 0; i < size; i++ )
 		{
-			if( empreg[i].nome.equalsIgnoreCase( _nome ) )
+			empregado = empreg.get(i);
+
+			if( empregado.nome.equalsIgnoreCase( _nome ) )
 			{
-				return empreg[i];
+				return empregado;
 			}
 		}
+
 		return null;
 	}
+
+
 	/**
 	 * Devuelve el numero de empleados dados de alta
 	 **/
-	public static int GET_SEG()
+	/*
+	 * ESTE ES EL SIZE()
+	 *  
+	 * public static int GET_SEG()
 	{
 		return emp_seg;
 	}
+	*/
 	public void SET_DEP( Empr empreg, int depar )
 	{
 		empreg.Numde = depar;

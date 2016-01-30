@@ -38,10 +38,14 @@ class Empresa
 			{
 				case 0:
 					break;
+				
 				case 1:
 					Empr.ALTA_E( empregado ) ;
 					break;
+				
+				
 				case 2:
+					
 					//hay que pasarle el objeto del que queremos ver los datos
 					//asi que habra que preguntar antes.
 					
@@ -50,10 +54,10 @@ class Empresa
 					nom = sc.nextLine();
 
 					// Se comprueba que el ArrayList NO está vacío
-					if( !empregado.isEmpty() )
+					if( !empregado.isEmpty() && n < empregado.size() )
 					{
 					
-							  Empr.VER_E( empregado, n );
+						 Empr.VER_E( empregado.get(n) );
 
 					} else {
 
@@ -61,32 +65,51 @@ class Empresa
 					
 					}
 					break;
-/*				case 3:
+		
+				
+				case 3:
+
+					/**
+					 * METODO SOBRECARGADO EMPLEA EMPREGADO Y DEPARTAMENTO MOSTRANDO DATOS DE AMBOS.
+					 **/
+
 					// Pido los datos de la consulta:
 					System.out.print( "Posicion del empleado en el array: " );
 					n = sc.nextInt();
 
 					// Compruebo que n exista en el rango del array de empleados
-					if( n >= 0 && n <= Empr.GET_SEG() )
+					if( !empregado.isEmpty() && n < empregado.size() )
 					{
-						Empr.VER_E( empregado[n], departamento );
+
+						Empr.VER_E( empregado, n, departamento );
+
 					} else {
-						System.out.println( "Fuera de rango." );
+
+						System.out.println( "No existen elementos." );
+
 					}
 					break;
+				
+				
 				case 4:
+
 					Empr.VER_TODOS( empregado );
 					break;
+
+						
 				case 5:
-					//Buscar empleado por nombre
+
+					// Buscar empleado por nombre
 					System.out.println( "Nombre del empleado:" );
 					nom = sc.nextLine(); // Recoge el salto de linea que hay en el buffer
 					nom = sc.nextLine();
-					Empr e;
+					Empr e; // posición del empleado
 					e = Empr.BUSCA_EMP( empregado, nom );
 					Empr.VER_E( e );
 					break;
-				case 6:
+		
+					
+		/*		case 6:
 					// Set departamento. 
 					// Le pasamos el objeto empleado y el departamento
 					System.out.println();
@@ -105,6 +128,8 @@ class Empresa
 					}
 					System.out.println();
 					break;
+				
+				
 				case 7:
 					// ALTA DEPARTAMENTO
 					Depart.ALTA_D( departamento );
