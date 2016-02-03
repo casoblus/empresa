@@ -109,19 +109,19 @@ class Empresa
 					break;
 		
 					
-		/*		case 6:
+				case 6:
 					// Set departamento. 
 					// Le pasamos el objeto empleado y el departamento
 					System.out.println();
 					System.out.println( "Empleado?" );
 					nom = sc.nextLine();
 					nom = sc.nextLine();
-					Empr e = Empr.BUSCA_EMP( empregado, nom );
-					if( e != null ) // e != null
+					e = Empr.BUSCA_EMP( empregado, nom );
+					if( e != null ) 
 					{
 						System.out.println( "Departamento?" );
-						Depart d = sc.nextLine();
-						if( d != null ) // d != null 
+						int d = sc.nextInt();
+						if( d < 0 ) 
 						{
 							Empr.SET_DEP( e, d );
 						}
@@ -130,7 +130,7 @@ class Empresa
 					break;
 				
 				
-				case 7:
+/*				case 7:
 					// ALTA DEPARTAMENTO
 					Depart.ALTA_D( departamento );
 					break;

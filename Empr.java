@@ -153,7 +153,7 @@ public class Empr
 		return emp_seg;
 	}
 	*/
-	public void SET_DEP( Empr empreg, int depar )
+	public static void SET_DEP( Empr empreg, int depar )
 	{
 		empreg.Numde = depar;
 	}
